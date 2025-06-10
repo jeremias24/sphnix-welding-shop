@@ -30,6 +30,24 @@ const routes: Array<RouteRecordRaw> = [
           breadcrumbs: ["Products"],
         },
       },
+      {
+        path: "/projects",
+        name: "project",
+        component: () => import("@/views/Project.vue"),
+        meta: {
+          pageTitle: "Project",
+          breadcrumbs: ["Projects"],
+        },
+      },
+      {
+        path: "/about",
+        name: "about",
+        component: () => import("@/views/About.vue"),
+        meta: {
+          pageTitle: "About",
+          breadcrumbs: ["About"],
+        },
+      },
     ],
   },
   {

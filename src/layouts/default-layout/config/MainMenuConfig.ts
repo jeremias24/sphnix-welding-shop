@@ -9,11 +9,16 @@ const MainMenuConfig: Array<MenuItem> = [
         keenthemesIcon: "element-11",
         bootstrapIcon: "bi-app-indicator",
       },
-
       {
-        heading: "Product",
+        heading: "Products",
         route: "/products",
         keenthemesIcon: "shop",
+        bootstrapIcon: "bi-bag",
+      },
+      {
+        heading: "Projects",
+        route: "/projects",
+        keenthemesIcon: "folder",
         bootstrapIcon: "bi-bag",
       },
     ],

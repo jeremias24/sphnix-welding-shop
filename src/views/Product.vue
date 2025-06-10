@@ -17,7 +17,7 @@ import Product from '@/components/carousel/Product.vue'
 
 
 export default defineComponent({
-  name: "main-dashboard",
+  name: "product",
   components: {
     Product,
    
