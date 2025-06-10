@@ -40,7 +40,7 @@
           <WidgetStats
             title="Happy Clients"
             :value="totalClients"
-            icon="ki-solid ki-smile"
+            icon="ki-solid ki-happy-emoji"
             class="h-100"
           />
         </div>
