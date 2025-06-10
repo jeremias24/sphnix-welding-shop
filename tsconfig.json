@@ -7,6 +7,7 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "strict": false,
+    "suppressImplicitAnyIndexErrors": true,
     "paths": {
       "@/*": ["./src/*"]
     }
