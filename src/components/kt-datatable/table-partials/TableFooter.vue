@@ -43,7 +43,10 @@ export default defineComponent({
     },
     currentPage: { type: Number, required: false, default: 1 },
   },
-  emits: ["update:itemsPerPage", "page-change"],
+  emits: {
+    'update:itemsPerPage': (val: number) => true,
+    'page-change':        (page: number) => true,
+  },
   setup(props, { emit }) {
     const page = ref(props.currentPage);
     const inputItemsPerPage = ref(props.itemsPerPage);
