@@ -37,7 +37,7 @@ export default defineComponent({
   props: {
     header: { type: Array, required: true },
     data: { type: Array, required: true },
-    itemsPerPage: { type: Number, default: 10 },
+    itemsPerPage: { type: Number, default: 25 },
     itemsPerPageDropdownEnabled: {
       type: Boolean,
       required: false,
@@ -45,6 +45,7 @@ export default defineComponent({
     },
     checkboxEnabled: { type: Boolean, required: false, default: false },
     checkboxLabel: { type: String, required: false, default: "id" },
+    rowNumberingEnabled: { type: Boolean, required: false, default: false },
     total: { type: Number, required: false },
     loading: { type: Boolean, required: false, default: false },
     sortLabel: { type: String, required: false, default: null },
@@ -69,21 +70,13 @@ export default defineComponent({
   setup(props, { emit }) {
     const currentPage = ref(props.currentPage);
     const itemsInTable = ref<number>(props.itemsPerPage);
-    const initHeader = ref<number>(props.header);
 
     watch(
       () => itemsInTable.value,
       (val) => {
         currentPage.value = 1;
         emit("on-items-per-page-change", val);
-      }
-    );
-
-    watch(
-      () => props.header,
-      (val) => {
-        initHeader.value = val;
-      }
+      },
     );
 
     const pageChange = (page: number) => {
@@ -91,16 +84,24 @@ export default defineComponent({
       emit("page-change", page);
     };
 
+    const activePage = computed(() => {
+      return currentPage.value;
+    });
+
     const dataToDisplay = computed(() => {
       if (props.data) {
         if (props.data.length <= itemsInTable.value) {
           return props.data;
         } else {
-          let sliceFrom = (currentPage.value - 1) * itemsInTable.value;
-          return props.data.slice(sliceFrom, sliceFrom + itemsInTable.value);
+          let sliceFrom =
+            (currentPage.value - 1) * parseInt(itemsInTable.value);
+          return props.data.slice(
+            sliceFrom,
+            sliceFrom + parseInt(itemsInTable.value),
+          );
         }
       }
-      return [];
+      //return [];
     });
 
     const totalItems = computed(() => {
@@ -125,12 +126,12 @@ export default defineComponent({
 
     return {
       pageChange,
+      activePage,
       dataToDisplay,
       onSort,
       onItemSelect,
       itemsInTable,
       totalItems,
-      initHeader,
     };
   },
 });
