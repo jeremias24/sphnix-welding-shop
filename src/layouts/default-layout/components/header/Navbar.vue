@@ -6,49 +6,8 @@
       <KTSearch />
     </div>
     <!--end::Search-->
-    <!--begin::Activities-->
-    <div class="app-navbar-item ms-1 ms-md-4">
-      <!--begin::Drawer toggle-->
-      <div
-        class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px"
-        id="kt_activities_toggle"
-      >
-        <KTIcon icon-name="messages" icon-class="fs-2" />
-      </div>
-      <!--end::Drawer toggle-->
-    </div>
-    <!--end::Activities-->
-    <!--begin::Notifications-->
-    <div class="app-navbar-item ms-1 ms-md-4">
-      <!--begin::Menu- wrapper-->
-      <div
-        class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px"
-        data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-        data-kt-menu-attach="parent"
-        data-kt-menu-placement="bottom-end"
-        id="kt_menu_item_wow"
-      >
-        <KTIcon icon-name="notification-status" icon-class="fs-2" />
-      </div>
-      <KTNotificationMenu />
-      <!--end::Menu wrapper-->
-    </div>
-    <!--end::Notifications-->
-    <!--begin::Chat-->
-    <div class="app-navbar-item ms-1 ms-md-4">
-      <!--begin::Menu wrapper-->
-      <div
-        class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px position-relative"
-        id="kt_drawer_chat_toggle"
-      >
-        <KTIcon icon-name="message-text-2" icon-class="fs-2" />
-        <span
-          class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"
-        ></span>
-      </div>
-      <!--end::Menu wrapper-->
-    </div>
-    <!--end::Chat-->
+
+    
     <!--begin::Theme mode-->
     <div class="app-navbar-item ms-1 ms-md-3">
       <!--begin::Menu toggle-->
@@ -70,25 +29,6 @@
       <KTThemeModeSwitcher />
     </div>
     <!--end::Theme mode-->
-    <!--begin::User menu-->
-    <div class="app-navbar-item ms-1 ms-md-4" id="kt_header_user_menu_toggle">
-      <!--begin::Menu wrapper-->
-      <div
-        class="cursor-pointer symbol symbol-35px"
-        data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-        data-kt-menu-attach="parent"
-        data-kt-menu-placement="bottom-end"
-      >
-        <img
-          :src="getAssetPath('media/avatars/300-3.jpg')"
-          class="rounded-3"
-          alt="user"
-        />
-      </div>
-      <KTUserMenu />
-      <!--end::Menu wrapper-->
-    </div>
-    <!--end::User menu-->
     <!--begin::Header menu toggle-->
     <div
       class="app-navbar-item d-lg-none ms-2 me-n2"
