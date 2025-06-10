@@ -49,7 +49,6 @@
           <slot name="actions" :product="product">
             <button
               class="btn btn-sm btn-primary w-100 mt-auto"
-              @click="openModal(product)"
             >
               View Details
             </button>
@@ -60,50 +59,11 @@
     
   </OuterCarousel>
 
-  <teleport to="body">
-    <div
-      v-if="showModal && selectedProduct"
-      class="modal fade show d-block"
-      style="background:#0005"               
-      @click.self="closeModal"               
-    >
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">{{ selectedProduct.name }}</h5>
-            <button class="btn-close" @click="closeModal"></button>
-          </div>
 
-          <div class="modal-body">
-            <!-- reuse the inner carousel for full-size pics -->
-            <InnerCarousel :items-to-show="1" wrap-around height="350">
-              <InnerSlide v-for="(img, i) in selectedProduct.image" :key="i">
-                <img
-                  :src="`/assets/${selectedProduct.path}/${img}`"
-                  class="w-100 h-100 object-fit-cover"
-                  :alt="`${selectedProduct.name} image ${i+1}`"
-                />
-              </InnerSlide>
-            </InnerCarousel>
-
-            <p class="mt-4 mb-0 fw-bold fs-4 text-primary">
-              ₱{{ selectedProduct.price?.toLocaleString() }}
-            </p>
-          </div>
-
-          <div class="modal-footer">
-            <button class="btn btn-secondary" @click="closeModal">
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </teleport>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue';
 import {
   Carousel as OuterCarousel,
   Slide as OuterSlide,
@@ -111,9 +71,9 @@ import {
   Pagination,
   Carousel as InnerCarousel,
   Slide as InnerSlide,
-} from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
-import { products } from '@/data/products'
+} from 'vue3-carousel';
+import 'vue3-carousel/dist/carousel.css';
+import { products } from '@/data/products';
 
 export default defineComponent({
   name: 'carousel-product',
@@ -138,26 +98,9 @@ export default defineComponent({
       0:    { itemsToShow: 1, gap: 8 }    // very small phones
     }
 
-
-    const showModal       = ref<boolean>(false)
-    const selectedProduct = ref<Product | null>(null)
-
-    const openModal = (p: Product): void => {
-      selectedProduct.value = p
-      showModal.value       = true
-      document.body.classList.add('modal-open')   // lock scroll
-    }
-
-    const closeModal = (): void => {
-      showModal.value = false
-      document.body.classList.remove('modal-open')
-    }
-
     return {
-     products, itemsToShow, gap, breakpoints, wrapAround,   showModal,
-      selectedProduct,
-      openModal,
-      closeModal,
+     products, itemsToShow, gap, breakpoints, wrapAround,
+     
     };
   },
 })
