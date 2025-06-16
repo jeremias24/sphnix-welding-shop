@@ -9,7 +9,7 @@ export const projects = [
   },
   {
     id: 2,
-    name: 'Kolong Kolong Sidecar',
+    name: 'Paresan Sidecar',
     price: '',
     category: 'Vehicle',
     path: 'projects/kolong/1',
