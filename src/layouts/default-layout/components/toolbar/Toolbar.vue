@@ -14,13 +14,13 @@
       <!--begin::Actions-->
       <div class="d-flex align-items-center gap-2 gap-lg-3">
         <!--begin::Primary button-->
-        <a
+        <!-- <a
           href="#"
           class="btn btn-sm fw-bold btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#kt_modal_new_target"
           >Send Inquiry</a
-        >
+        > -->
         <!--end::Primary button-->
       </div>
       <!--end::Actions-->
