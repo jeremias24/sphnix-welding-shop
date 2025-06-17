@@ -26,6 +26,8 @@
               :src="`/assets/${product.path}/${img}`"
               :alt="`${product.name} image ${idx + 1}`"
               class="w-100 h-100 object-fit-cover"
+              @click="showLightbox(product, idx)"
+              style="cursor: zoom-in; width: 300px; margin: 10px"
             />
           </InnerSlide>
             <template #addons>
@@ -59,11 +61,18 @@
     
   </OuterCarousel>
 
+  <VueEasyLightbox
+    :visible="visibleRef"
+    :imgs="imgs"
+    :index="indexRef"
+    @hide="visibleRef = false"
+  />
 
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import VueEasyLightbox from 'vue-easy-lightbox'
 import {
   Carousel as OuterCarousel,
   Slide as OuterSlide,
@@ -85,6 +94,7 @@ export default defineComponent({
     InnerSlide,
     Navigation,
     Pagination,
+    VueEasyLightbox
   },
 
    setup() {
@@ -96,11 +106,28 @@ export default defineComponent({
       992:  { itemsToShow: 2, gap: 16 },  // tablets / small laptops
       576:  { itemsToShow: 1.2, gap: 12 },// large phones (0.2 shows a hint of next card)
       0:    { itemsToShow: 1, gap: 8 }    // very small phones
+    };
+
+    const visibleRef = ref(false);
+    const indexRef = ref(0);
+    const imgs = ref<string[]>([]);
+
+    const showLightbox = (project: any, index: number) => {
+      imgs.value = project.image.map((img: string) => `/assets/${project.path}/${img}`);
+      indexRef.value = index
+      visibleRef.value = true
     }
 
     return {
-     products, itemsToShow, gap, breakpoints, wrapAround,
-     
+      products, 
+      itemsToShow, 
+      gap, 
+      breakpoints,
+      wrapAround, 
+      visibleRef,
+      indexRef,
+      imgs,
+      showLightbox
     };
   },
 })
