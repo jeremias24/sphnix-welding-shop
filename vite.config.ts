@@ -14,19 +14,18 @@ export default defineConfig({
       manifest: {
         name: 'Sphnix Welding Shop',
         short_name: 'Sphnix',
-        description: 'A welding shop product and service platform',
+        description: 'Welding products and services',
         theme_color: '#ffffff',
-        background_color: '#ffffff',
-        display: 'standalone',
-        orientation: 'portrait',
-        start_url: '/',
         icons: [
           {
             src: '/pwa/phoenix-192x192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
           },
         ]
+      },
+      workbox: {
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // ✅ 5 MB limit
       }
     })
   ],
