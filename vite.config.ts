@@ -15,6 +15,7 @@ export default defineConfig({
         name: 'Sphnix Welding Shop',
         short_name: 'Sphnix',
         description: 'Welding products and services',
+        display: 'standalone',
         theme_color: '#ffffff',
         icons: [
           {
