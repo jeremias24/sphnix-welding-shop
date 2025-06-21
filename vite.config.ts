@@ -13,7 +13,7 @@ export default defineConfig({
       includeAssets: ['favicon.svg', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
         name: 'Sphnix Welding Shop',
-        short_name: 'Sphnix',
+        short_name: 'Sphnix Welding Shop',
         description: 'Welding products and services',
         display: 'standalone',
         theme_color: '#ffffff',
