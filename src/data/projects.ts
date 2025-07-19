@@ -43,5 +43,13 @@ export const projects = [
     path: 'projects/repairs',
     image: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg',] // use 5 different images
   },
+  {
+    id: 6,
+    name: 'Gate, Grills and Etc.',
+    price: '',
+    category: 'Gate, Grills and Etc.,',
+    path: 'projects/gates',
+    image: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'] // use 5 different images
+  },
 
 ]
