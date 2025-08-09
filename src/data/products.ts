@@ -31,4 +31,12 @@ export const products = [
     path: 'products/gym_equipments/2',
     image: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg'],  // use 3 different images
   },
+  {
+    id: 5,
+    name: 'Sidecar Back to Back',
+    price: '40,000',
+    category: 'Vehicle Add-ons',
+    path: 'products/sidecars/2',
+    image: ['1.jpg', '2.jpg', '3.jpg', '4.jpg'] // use 3 different images
+  },
 ]
